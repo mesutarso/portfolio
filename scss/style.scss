@@ -1,0 +1,17 @@
+@import "sections/header.scss",
+"sections/hero.scss",
+"sections/about.scss",
+"sections/project.scss",
+"sections/skills.scss",
+"sections/contact.scss",
+"sections/footer";
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: $fontFamily;
+}
+
+body {
+    overflow-x: hidden;
+}
