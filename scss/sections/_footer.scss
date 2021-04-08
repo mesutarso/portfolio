@@ -1,0 +1,30 @@
+@import "../utils/colors",
+"../utils/_font",
+"../utils/mixins/buttons",
+"../utils/mixins/heading",
+"../utils/mixins/breakpoint",
+"../utils/mixins/grid",
+"../utils/mixins/image",
+"../utils/mixins/position",
+"../utils/mixins/input",
+"../utils/mixins/transitions";
+.footer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-color: $textColor;
+    color: $whiteColor;
+    padding: 80px 50px;
+    text-align: center;
+    &__quote {
+        @include heading-3;
+        color: $whiteColor;
+    }
+    &__rights {
+        &__content {
+            >span {
+                color: $secondaryColor;
+            }
+        }
+    }
+}

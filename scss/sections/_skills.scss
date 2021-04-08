@@ -1,0 +1,122 @@
+@import "../utils/colors",
+"../utils/_font",
+"../utils/mixins/buttons",
+"../utils/mixins/heading",
+"../utils/mixins/breakpoint",
+"../utils/mixins/grid",
+"../utils/mixins/card",
+"../utils/mixins/image",
+"../utils/mixins/position",
+"../utils/mixins/flex",
+"../utils/mixins/transitions";
+.skills {
+    @include section(wrap-reverse);
+    background-color: #f1f1f1;
+    &__inner {
+        @include grid(half);
+        .skills__title {
+            @include heading-2;
+            color: $secondaryColor;
+        }
+        .skills__description {
+            @include heading-4;
+            color: $primaryColor;
+        }
+        .skills__container {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            .skills__btn {
+                @include heading-3;
+                margin-bottom: 0;
+                color: $whiteColor;
+                padding: 1rem 0;
+                border: none;
+                border-radius: none;
+                text-transform: capitalize;
+                display: block;
+                background: $primaryColor;
+                cursor: pointer;
+                @include transition(all, 0.3, linear);
+                letter-spacing: 0.25rem;
+                &_active {
+                    background: $secondaryColor;
+                    color: $primaryColor;
+                }
+                &:focus {
+                    outline: none;
+                }
+                &:nth-child(1) {
+                    border-top-left-radius: 10px;
+                }
+                &:nth-child(3) {
+                    border-top-right-radius: 10px;
+                }
+                &:hover:not(.active) {
+                    background: $secondaryColor;
+                    color: $primaryColor;
+                }
+            }
+        }
+        .skills__btn_content {
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            padding: 30px;
+            background-color: $whiteColor;
+            .content {
+                display: none;
+                &.active {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr 1fr 1fr;
+                    place-items: center;
+                    @include breakpoint(phablet) {
+                        grid-template-columns: 1fr 1fr;
+                    }
+                }
+                .skills__tech {
+                    @include flex(center, center, column);
+                    >.iconify {
+                        color: $primaryColor;
+                        font-size: 40px;
+                        text-align: center;
+                        position: relative;
+                        @include breakpoint(phablet) {
+                            font-size: 35px;
+                        }
+                        @include breakpoint(mobileonly) {
+                            font-size: 20px;
+                        }
+                    }
+                    >p {
+                        margin-bottom: 20px;
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+    }
+    &__curriculum {
+        &__code {
+            @include card($primaryColor);
+            @include heading-6;
+            color: $whiteColor;
+        }
+        &__span {
+            color: $secondaryColor;
+        }
+    }
+    &__curriculum-btn {
+        margin-bottom: 30px;
+        @include breakpoint(phablet) {
+            text-align: center;
+        }
+        .skills__curriculum-btn__link {
+            @include button($primaryColor, $whiteColor);
+            @include link;
+            &:hover {
+                @include button($secondaryColor, $whiteColor)
+            }
+        }
+    }
+}

@@ -1,0 +1,87 @@
+@import "../utils/colors",
+"../utils/_font",
+"../utils/mixins/buttons",
+"../utils/mixins/flex",
+"../utils/mixins/heading";
+.header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 15vh;
+    box-shadow: 0 1px 3px rgb(0 0 0 / 20%);
+    &.header_fixed {
+        width: 100%;
+        position: fixed;
+        z-index: 999;
+    }
+    &.header_background {
+        background-color: $whiteColor;
+    }
+    .header__logo {
+        color: $textColor;
+        .logo {
+            @include link;
+            @include heading-3;
+            letter-spacing: 5px;
+            .logo__span-text {
+                font-weight: 700;
+            }
+        }
+    }
+    .header__menu {
+        color: $textColor;
+        .menu__inner {
+            display: flex;
+            @include breakpoint(phablet) {
+                position: absolute;
+                right: 0;
+                top: 15vh;
+                height: 92vh;
+                width: 70vw;
+                background-color: $primaryColor;
+                color: $whiteColor !important;
+                @include flex(space-evenly);
+                padding-left: 100px;
+                transform: translateX(100%);
+                @include transition(transform, 0.5s, ease-in-out);
+                &.menu__inner_active {
+                    transform: translateX(0%);
+                }
+            }
+            @include list;
+            .menu__item {
+                margin-left: 30px;
+                @include breakpoint(tablet) {
+                    margin-left: 20px;
+                }
+                .menu__link {
+                    @include link;
+                    color: $textColor;
+                    transition: all .5s ease-in-out;
+                    font-weight: 500;
+                    @include breakpoint(phablet) {
+                        color: $whiteColor;
+                    }
+                    &:hover {
+                        color: $primaryColor;
+                        @include breakpoint(phablet) {
+                            color: $secondaryColor;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &__burger {
+        display: none;
+        @include breakpoint(phablet) {
+            display: inline;
+        }
+        &__line {
+            width: 25px;
+            height: 3px;
+            background-color: $primaryColor;
+            margin: 5px;
+        }
+    }
+}

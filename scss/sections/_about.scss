@@ -1,0 +1,71 @@
+@import "../utils/colors",
+"../utils/_font",
+"../utils/mixins/buttons",
+"../utils/mixins/heading",
+"../utils/mixins/breakpoint",
+"../utils/mixins/grid",
+"../utils/mixins/image",
+"../utils/mixins/position",
+"../utils/mixins/card",
+"../utils/mixins/transitions";
+.about {
+    @include section(wrap-reverse, row);
+    background-color: #f1f1f1;
+    .about__inner {
+        @include grid(half);
+        .about__card {
+            @include card($whiteColor);
+            @include transition(all, 0.5, ease-in-out);
+            &:hover {
+                box-shadow: 0 1px 3px rgb(0 0 0 / 20%);
+            }
+            .about__card__inner {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                .about__card__title {
+                    @include heading-3;
+                    color: $primaryColor;
+                }
+                .about__card__images {
+                    width: 10%;
+                    height: 10%;
+                }
+            }
+            .about__card__description {
+                @include heading-4;
+                @include breakpoint(phablet) {
+                    text-align: left;
+                }
+            }
+            .about__card__stats {
+                @include heading-3;
+                color: $primaryColor;
+                @include breakpoint(phablet) {
+                    text-align: left;
+                }
+                .about__card__stats-span {
+                    color: $secondaryColor;
+                    font-weight: 600;
+                }
+            }
+        }
+        .about__sub-title {
+            @include heading-4;
+            color: $primaryColor;
+        }
+        .about__title {
+            @include heading-2;
+            color: $secondaryColor;
+        }
+        .about__quote {
+            @include heading-3;
+            color: $primaryColor;
+        }
+        .about__description {
+            @include breakpoint(phablet) {
+                text-align: center;
+            }
+        }
+    }
+}

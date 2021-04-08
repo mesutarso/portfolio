@@ -1,0 +1,100 @@
+@import "../utils/colors",
+"../utils/_font",
+"../utils/mixins/buttons",
+"../utils/mixins/heading",
+"../utils/mixins/breakpoint",
+"../utils/mixins/grid",
+"../utils/mixins/image",
+"../utils/mixins/position",
+"../utils/mixins/section",
+"../utils/mixins/flex",
+"../utils/mixins/transitions";
+.hero {
+    @include section(wrap-reverse, row);
+    top: 15vh;
+    &__inner {
+        @include grid(half);
+        margin-bottom: 50px;
+        .hero__title {
+            @include heading-1;
+            .hero__span {
+                color: $secondaryColor;
+            }
+        }
+        .hero__description {
+            @include heading-4;
+        }
+        .hero__btn {
+            margin-bottom: 30px;
+            @include breakpoint(phablet) {
+                text-align: center;
+            }
+            .hero__btn__link {
+                @include button($primaryColor, $whiteColor);
+                @include link;
+                &:hover {
+                    @include button($secondaryColor, $whiteColor)
+                }
+            }
+        }
+        .hero__stats {
+            @include flex(space-between, baseline, row);
+            .hero__stats__text {
+                @include heading-4;
+                color: $primaryColor;
+                font-weight: 600;
+                .hero__stats__span {
+                    @include heading-1;
+                    color: $secondaryColor;
+                }
+            }
+        }
+        &.hero__images {
+            @include flex(center, center);
+            .hero__icon-container {
+                @include flex(space-between, center, row);
+                position: relative;
+                .hero__icon {
+                    width: 10%;
+                    &_item {
+                        @include image;
+                    }
+                    &.hero__icon_top {
+                        transform: translate(10vw, 10vw);
+                    }
+                    &.hero__icon_bottom {
+                        transform: translate(10vw, -10vw);
+                    }
+                    &.hero__icon_top-right {
+                        transform: translate(-6vw, 10vw);
+                    }
+                    &.hero__icon_bottom-right {
+                        transform: translate(-6vw, -10vw);
+                    }
+                    &.hero__icon_top-left {
+                        transform: translateX(2vw);
+                    }
+                    &.hero__icon_bottom-left {
+                        transform: translateX(2vw);
+                    }
+                }
+            }
+            .hero__image {
+                width: 40%;
+                margin-bottom: 30px;
+                .hero__image__item {
+                    order: 1;
+                    @include image;
+                    position: relative;
+                    transform: translate(20px, 20px);
+                    &.hero__image__item_bg {
+                        position: absolute;
+                        max-width: 320px;
+                        transform: translate(100px, 39px);
+                        z-index: -1;
+                    }
+                }
+            }
+        }
+    }
+}
