@@ -36,7 +36,6 @@ const navBar = () => {
 
     })
     navList.forEach(item => {
-        console.log(item);
         item.addEventListener("click", () => {
             nav.classList.remove("menu__inner_active");
         })
