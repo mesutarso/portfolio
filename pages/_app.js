@@ -1,7 +1,15 @@
-import '../styles/globals.css';
+import "bootstrap/dist/css/bootstrap.css";
+import { ThemeProvider } from "styled-components";
+import { GlobalStyle } from "../styles/GlobalStyle";
+import { theme } from "../styles/theme";
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />;
+export default function App({ Component, pageProps }) {
+  return (
+    <>
+      <GlobalStyle />
+      <ThemeProvider theme={theme}>
+        <Component {...pageProps} />
+      </ThemeProvider>
+    </>
+  );
 }
-
-export default MyApp;
