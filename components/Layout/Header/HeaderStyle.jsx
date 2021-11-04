@@ -1,9 +1,13 @@
 import styled from "styled-components";
 
 export const HeaderStyle = styled.header`
+  position: relative;
   background-color: #fff;
   box-shadow: 0px -30px 15px 29px rgba(0, 0, 0, 0.15);
   padding: 0 50px;
+  @media (max-width: 998px) {
+    padding: 0;
+  }
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
