@@ -14,7 +14,7 @@ export default function Header() {
   return (
     <HeaderStyle className="nav">
       <div className="logo col-md-4 col-sm-4 pl-5">
-        <h1>
+        <h1 className="fw-bold">
           Mechack <span>Tambwe</span>
         </h1>
       </div>

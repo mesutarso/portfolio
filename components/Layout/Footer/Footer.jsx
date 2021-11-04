@@ -9,7 +9,7 @@ export default function Footer() {
   return (
     <FooterStyle className="row d-flex justify-content-around">
       <div className="col-lg-4 col-md-4 col-sm-12 px-4">
-        <h1 className="footer__logo">
+        <h1 className="footer__logo fw-bold">
           Mechack <span className="secondary">Tambwe</span>
         </h1>
         <div className="footer__description">
