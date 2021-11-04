@@ -4,29 +4,25 @@ import { heading } from "./variables/_text";
 
 export const GlobalStyle = createGlobalStyle`
  
-html {
-  line-height: 1.15; /* 1 */
-  -webkit-text-size-adjust: 100%; /* 2 */
+*{
+  margin:0;
+  padding:0;
+  font-family:"Poppins", sans-serif;
+  box-sizing:border-box;
+}
+body{
+  overflow-x:hidden;
 }
 
-/* Sections
-   ========================================================================== */
-
-/**
- * Remove the margin in all browsers.
- */
-
-body {
-  margin: 0;
+li{
+    list-style:none;
 }
-
-
-main {
-  display: block;
+ol,ul{
+  padding:0 !important;
 }
 
 
-h1 {
+h1,h2,h3,h4,h5 {
   font-size: 2em;
   margin: 0.67em 0;
 }
@@ -61,6 +57,8 @@ pre {
 
 a {
   background-color: transparent;
+  text-decoration:none;
+ 
 }
 
 /**

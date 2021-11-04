@@ -1,9 +1,4 @@
-import styled from "styled-components";
-
-const Title = styled.h1`
-  color: ${({ theme }) => theme.colors.primary};
-`;
-
+import Header from "../components/Layout/Header/Header";
 export default function Home() {
-  return <Title className="heading">My page</Title>;
+  return <>Accueil</>;
 }
